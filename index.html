@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="heading">white</h1>
+    <button id="mode">Change Mode</button>
+    <script>
+        const mode = document.getElementById("mode");
+        const heading = document.getElementById("heading");
+
+        mode.addEventListener("click", function()
+       {
+         if (heading.innerText === 'white') {
+            heading.innerText = 'black';
+            heading.style.color='white';
+            document.body.style.backgroundColor = "black"
+        } else{
+            heading.innerText = 'white';
+            heading.style.color='black';
+            document.body.style.backgroundColor = "white"
+
+        }
+   } );
+
+    </script>
+</body>
+
+</html>
