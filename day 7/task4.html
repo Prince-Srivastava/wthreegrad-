@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Form Example</h2>
+
+    <form id="form">
+        <input type="text" id="name" placeholder="Enter name">
+        <p id="nameError" style="color:red"></p>
+
+        <input type="password" id="password" placeholder="Enter Password" minlength="8" maxlength="10">
+        <p id="passwordError" style="color:red"></p>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        const form          = document.querySelector("#form")
+        const nameInput     = document.querySelector("#name")
+        const passwordInput = document.querySelector("#password")
+        const nameError     = document.querySelector("#nameError")
+        const passwordError = document.querySelector("#passwordError")
+
+        form.addEventListener("submit", function (e) {
+            e.preventDefault()
+
+            const name     = nameInput.value.trim()
+            const password = passwordInput.value
+
+            nameError.textContent     = ""
+            passwordError.textContent = ""
+
+            if (!name) nameError.textContent = "Name is required."
+
+            if (password.length < 8 || password.length > 10)
+                passwordError.textContent = "Password must be 8–10 characters."
+            else if (!/[A-Z]/.test(password))
+                passwordError.textContent = "Password must contain at least one capital letter."
+            else
+                console.log("Name:", name, "| Password:", password)
+        })
+    </script>
+</body>
+</html>
